@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MapController!
+{% endblock %}
+
+{% block body %}
+<pre>
+	{{ dump(json) }}
+</pre>
+
+<pre>
+	{{ dump(err) }}
+</pre>
+<div class="conteneur-map">
+	<div id="map00"></div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+	{{ encore_entry_script_tags('app') }}
+{% endblock %}
