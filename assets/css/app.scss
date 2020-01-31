@@ -8,19 +8,20 @@
         display: flex !important;
         flex-basis: auto;
         justify-content: flex-end;
+        margin-right: 30px;
     }
 }
 
 $bleufonce: #ffffff;
 $bleu: #000000;
-$bleuclair: #c41d17;
+$bleuclair: #7692FF;
 $titre1: 'Syncopate', sans-serif;
 $titre2: 'Raleway', sans-serif;
 $texte: 'Questrial', sans-serif;
 $thick : 3px;
 $pad : 0.7em;
 $extra : calc(#{$pad} * 1.2);
-$color : #c41d17;
+$color : #3D518C;
 
 $offset-navbar : 100px;
 
@@ -52,9 +53,11 @@ body{
     width: 100%;
     z-index: 2;
 }
+
 #logo{
-    width: 150px;
+    width: 100px;
     height: auto;
+    margin-left: 30px;
 }
 .mr-auto, .mx-auto {
     margin-right: unset !important;
@@ -185,11 +188,11 @@ body{
     height: 100px;
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
 }
 .social .logo{
     justify-content: center;
     flex-direction: row;
+    margin-left: 30px;
 }
 .social .logo-social{
     width: 80px;
@@ -207,11 +210,13 @@ body{
     padding: $pad $extra;
     display: inline-block;
     border: $thick solid transparent;
-    position: relative;
+    position: absolute;
     font-size: 1.5em;
     cursor: pointer;
     letter-spacing: 0.07em;
     padding-bottom: 1.3rem;
+    right: 0;
+    margin-right: 30px;
     
     .text {
     font-family: $titre2;
@@ -328,4 +333,7 @@ body{
     }
     
     }
-    
+
+#footer{
+    bottom: 0;
+}
