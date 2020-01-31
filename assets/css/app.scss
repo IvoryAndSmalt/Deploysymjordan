@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Questrial|Raleway|Syncopate&display=swap');
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "main.css";
 @import "util.css";
 
@@ -22,7 +23,6 @@ $thick : 3px;
 $pad : 0.7em;
 $extra : calc(#{$pad} * 1.2);
 $color : #3D518C;
-
 $offset-navbar : 100px;
 
 
@@ -33,7 +33,7 @@ body{
 }
 #nav{
     border-bottom: 2px solid $bleuclair;
-    background-color: rgba(0,0,0,0.7);;
+    background-color: rgba(0,0,0,0.8);;
     font-family: $titre2;
     font-weight: bold;
     font-size: 1.50rem;
@@ -124,14 +124,13 @@ body{
     justify-content: flex-end;
 }
 
-
 ///////////////////////
 
 .conteneur-map{
     width: 100%;
-    height: 700px;
+    height: 70vh;
     display: flex;
-    position: relative;
+    position: right;
     align-items: flex-end;
     justify-content: flex-end;
 }
@@ -140,6 +139,7 @@ body{
     width: 80%;
     align-items: flex-end;
     justify-content: flex-end;
+    margin-right: 30px;
 }
 
 // XXXXXXXXXXXX PAGE CONTACT XXXXXXXXXXXXX
