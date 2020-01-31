@@ -24,16 +24,16 @@ $(document).ready(function() {
 
 console.log("salut");
 
-var mymap = L.map('map00').setView([51.505, -0.09], 3);
+var mymap = L.map('map00').setView([49.12, -123.47], 7.499);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
-L.marker([51.5, -0.09]).addTo(mymap)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    // .openPopup();
+// L.marker([51.5, -0.09]).addTo(mymap)
+//     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+//     // .openPopup();
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 
 
@@ -102,7 +102,27 @@ fetch('/curl', {
     .then((responseFesti) => {
         return responseFesti.json()})
     .then(function (json){
-        console.log(json)
+        console.log(json);
+        for (let i = 0; i < json.length; i++) {
+            const element = json[i];
+            console.log(element);
+            let lat = element['latitude']
+            let long = element['longitude']
+            let quantity = element['quantity']
+            let species = element['species']
+            let setQant = '<br>Quantité : Inconnue';
+            // console.log(lat);
+            let marker = L.marker([lat, long]).addTo(mymap)
+                .bindPopup('')
+                let mapopup = marker.getPopup();
+                if (quantity !== null) {
+                    setQant = '<br>Quantité : ' + quantity
+                }
+            mapopup.setContent('lat : ' + lat + '<br>long : ' + long + setQant + '<br>Espèces : ' + species) 
+            // .openPopup();
+
+            // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+        }
     })
     // .then((myJsonFesti) => {
     // let myNewJsonFesti = JSON.parse(myJsonFesti);
