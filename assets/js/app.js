@@ -31,7 +31,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 L.marker([51.5, -0.09]).addTo(mymap)
     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
+    // .openPopup();
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
@@ -92,20 +92,21 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 })($);
 
-fetch('/map', {
+fetch('/curl', {
     method: 'GET', // or 'PUT'
-    cors: 'no-cors',
     headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
     }
     })
     .then((responseFesti) => {
-    return responseFesti.json();
+        return responseFesti.json()})
+    .then(function (json){
+        console.log(json)
     })
-    .then((myJsonFesti) => {
-    let myNewJsonFesti = JSON.parse(myJsonFesti);
-        console.log(myNewJsonFesti)});
+    // .then((myJsonFesti) => {
+    // let myNewJsonFesti = JSON.parse(myJsonFesti);
+    //     console.log(myNewJsonFesti)});
 
 
 ///////////////////     LIEN QUI MARCHE RECUP JSON CARIBOU
