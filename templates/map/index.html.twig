@@ -8,22 +8,23 @@
 
 <div class="conteneur-map">
 	<div id="search-form">
-		<form id="search">
+		<form id="search" name="search" action="traitement.php" method="POST">
 			<label class="label" for="species-select">Choisissez une espèce :</label>
 			<select name="species" id="species-select">
 				<option value="">--Choisissez ci-dessous--</option>
 				<option value="humpback">Baleine à bosse</option>
-				<option value="harborporpoise">Marsouin</option>
-				<option value="graywhale">Baleine grise</option>
+				<option value="harbor porpoise">Marsouin</option>
+				<option value="gray whale">Baleine grise</option>
 				<option value="orca">Orque</option>
 			</select>
 			{# <label class="label" for="date-select">Choisissez une date :</label> #}
 
-			<p class="label">Choisissez une date :<input type="text" id="datepicker" value=""></p>
+			<label class="label">Choisissez une date :</label>
+			 <input type="text" name="until" id="date" value="" min="2015-01-01" max="2032-12-31">
 			<script>
 
 			$( function() {
-			  $( "#datepicker" ).datepicker();
+			  $( "#date" ).datepicker();
 			} );
 			</script>
 
@@ -33,8 +34,8 @@
 			<button type="submit" id="submit">Rechercher</button>
 		</form>
 	</div>
+
 	<div id="map00"></div>
-</div>
 {% endblock %}
 
 {% block javascripts %}

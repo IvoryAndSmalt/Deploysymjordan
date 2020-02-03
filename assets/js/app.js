@@ -17,6 +17,7 @@ require('hamburger');
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
 
+
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
@@ -94,19 +95,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 })($);
 
-fetch('/curl', {
-    method: 'GET', // or 'PUT'
-    headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-    }
-    })
-    .then((responseFesti) => {
-        return responseFesti.json()})
-    .then(function (json){
-        // console.log(json);
-        for (let i = 0; i < json.length; i++) {
-            const element = json[i];
+$(function () {
+    $('#search').submit(function (e) {
+        e.preventDefault();
+        $('.error').empty();
+        let postdata = $('#search').serializeArray();
+        $.ajax({
+            type: 'POST',
+            url: '/curl',
+            data: postdata,
+            dataType: 'json',
+            success: function (result) {
+            for (let i = 0; i < result.length; i++) {
+            const element = result[i];
             // console.log(element);
             let lat = element['latitude']
             let long = element['longitude']
@@ -125,10 +126,45 @@ fetch('/curl', {
 
             // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
         }
-    })
-    // .then((myJsonFesti) => {
-    // let myNewJsonFesti = JSON.parse(myJsonFesti);
-    //     console.log(myNewJsonFesti)});
+            }
+        });
+    });
+})
+
+// fetch('/curl', {
+//     method: 'GET', // or 'PUT'
+//     headers: {
+//     'Content-Type': 'application/json',
+//     'Access-Control-Allow-Origin': '*'
+//     }
+//     })
+//     .then((resultat) => {
+//         return resultat.json()})
+//     .then(function (json){
+//         console.log(json);
+//         for (let i = 0; i < json.length; i++) {
+//             const element = json[i];
+//             // console.log(element);
+//             let lat = element['latitude']
+//             let long = element['longitude']
+//             let quantity = element['quantity']
+//             let species = element['species']
+//             let setQant = '<br>Quantité : Inconnue';
+//             // console.log(lat);
+//             let marker = L.marker([lat, long]).addTo(mymap)
+//                 .bindPopup('')
+//                 let mapopup = marker.getPopup();
+//                 if (quantity !== null) {
+//                     setQant = '<br>Quantité : ' + quantity
+//                 }
+//             mapopup.setContent('lat : ' + lat + '<br>long : ' + long + setQant + '<br>Espèces : ' + species) 
+//             // .openPopup();
+
+//             // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+//         }
+//     })
+
+
 
 
 ///////////////////     LIEN QUI MARCHE RECUP JSON CARIBOU
