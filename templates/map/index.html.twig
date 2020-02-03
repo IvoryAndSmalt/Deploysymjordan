@@ -8,7 +8,7 @@
 
 <div class="conteneur-map">
 	<div id="search-form">
-		<form id="search">
+		<form action="FormController.php" method="POST" id="search" role="form">
 			<label for="species-select">Choisissez une espèce :</label>
 			<select name="species" id="species-select">
 				<option value="">--Choisissez ci-dessous--</option>
@@ -17,8 +17,10 @@
 				<option value="graywhale">Baleine grise</option>
 				<option value="orca">Orque</option>
 			</select>
+			<p class="error"></p>
 			<label for="date-select">Choisissez une date :</label>
 			<input type="date" id="date" name="date-select" min="2015-01-01" max="2032-12-31">
+			<p class="error"></p>
 			<button type="submit" id="submit">Rechercher</button>
 		</form>
 	</div>

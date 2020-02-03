@@ -107,7 +107,6 @@ fetch('/curl', {
         console.log(json);
         for (let i = 0; i < json.length; i++) {
             const element = json[i];
-            console.log(element);
             let lat = element['latitude']
             let long = element['longitude']
             let quantity = element['quantity']
@@ -126,6 +125,29 @@ fetch('/curl', {
             // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
         }
     })
+
+///////////////////////FORM
+
+
+    $(function (){
+        $('#search').submit(function (e){
+          e.preventDefault();
+          $('.error').empty();
+          let postdata = $('#search').serialize();
+      
+          $.ajax({
+            type: 'POST',
+            url: 'FormController.php',
+            data: postdata,
+            dataType: 'json',
+            success: function(result){
+                $("#search").append("<p class='validation'>Votre mail m'a bien été transmis !</p>");
+            } 
+          });
+        });
+      })
+
+
     // .then((myJsonFesti) => {
     // let myNewJsonFesti = JSON.parse(myJsonFesti);
     //     console.log(myNewJsonFesti)});
