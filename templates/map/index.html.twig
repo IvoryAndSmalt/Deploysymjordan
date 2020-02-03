@@ -6,24 +6,24 @@
 {% block body %}
 
 
-<div class="conteneur-map">
-	<div id="search-form">
-		<form id="search">
-			<label for="species-select">Choisissez une espèce :</label>
-			<select name="species" id="species-select">
-				<option value="">--Choisissez ci-dessous--</option>
-				<option value="humpback">Baleine à bosse</option>
-				<option value="harborporpoise">Marsouin</option>
-				<option value="graywhale">Baleine grise</option>
-				<option value="orca">Orque</option>
-			</select>
-			<label for="date-select">Choisissez une date :</label>
-			<input type="date" id="date" name="date-select" min="2015-01-01" max="2032-12-31">
-			<button type="submit" id="submit">Rechercher</button>
-		</form>
+	<div class="conteneur-map">
+		<div id="search-form">
+			<form id="search" name="search" action="traitement.php" method="POST">
+				<label for="species-select">Choisissez une espèce :</label>
+				<select name="species" id="species-select">
+					<option value="">--Choisissez ci-dessous--</option>
+					<option value="humpback">Baleine à bosse</option>
+					<option value="harbor porpoise">Marsouin</option>
+					<option value="gray whale">Baleine grise</option>
+					<option value="orca">Orque</option>
+				</select>
+				<label for="date">Choisissez une date :</label>
+				<input type="date" id="date" name="until" min="2015-01-01" max="2032-12-31">
+				<input type="submit" id="submit" value="Rechercher">
+			</form>
+		</div>
+		<div id="map00"></div>
 	</div>
-	<div id="map00"></div>
-</div>
 {% endblock %}
 
 {% block javascripts %}
