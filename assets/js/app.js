@@ -104,10 +104,10 @@ fetch('/curl', {
     .then((responseFesti) => {
         return responseFesti.json()})
     .then(function (json){
-        console.log(json);
+        // console.log(json);
         for (let i = 0; i < json.length; i++) {
             const element = json[i];
-            console.log(element);
+            // console.log(element);
             let lat = element['latitude']
             let long = element['longitude']
             let quantity = element['quantity']

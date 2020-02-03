@@ -9,7 +9,7 @@
 <div class="conteneur-map">
 	<div id="search-form">
 		<form id="search">
-			<label for="species-select">Choisissez une espèce :</label>
+			<label class="label" for="species-select">Choisissez une espèce :</label>
 			<select name="species" id="species-select">
 				<option value="">--Choisissez ci-dessous--</option>
 				<option value="humpback">Baleine à bosse</option>
@@ -17,8 +17,19 @@
 				<option value="graywhale">Baleine grise</option>
 				<option value="orca">Orque</option>
 			</select>
-			<label for="date-select">Choisissez une date :</label>
-			<input type="date" id="date" name="date-select" min="2015-01-01" max="2032-12-31">
+			{# <label class="label" for="date-select">Choisissez une date :</label> #}
+
+			<p class="label">Choisissez une date :<input type="text" id="datepicker" value=""></p>
+			<script>
+
+			$( function() {
+			  $( "#datepicker" ).datepicker();
+			} );
+			</script>
+
+			{# <input type="date" id="date" name="date-select" min="2015-01-01" max="2032-12-31"> #}
+
+
 			<button type="submit" id="submit">Rechercher</button>
 		</form>
 	</div>
