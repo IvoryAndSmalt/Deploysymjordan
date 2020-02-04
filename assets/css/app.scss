@@ -3,6 +3,7 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "main.css";
 @import "util.css";
+@import "loader.css";
 
 @media (min-width: 992px){
     .navbar-expand-lg .navbar-collapse {
@@ -196,6 +197,19 @@ body{
         align-items: flex-end;
         justify-content: flex-end;
         margin-right: 30px;
+        #loader{
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.8);
+            position: absolute;
+            z-index: 1000;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        .visible{
+            visibility: visible;
+        }
     }
 }
 // XXXXXXXXXXXX PAGE CONTACT XXXXXXXXXXXXX
