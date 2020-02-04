@@ -39,6 +39,7 @@ body{
     font-weight: bold;
     font-size: 1.50rem;
     text-transform: uppercase;
+    z-index: 1100;
     #home{
         color: $color;
     }
@@ -53,6 +54,10 @@ body{
     position: fixed;
     width: 100%;
     z-index: 2;
+}
+
+#burger{
+    background-color: white;
 }
 
 #logo{
@@ -162,7 +167,7 @@ body{
             #date{
                 border: 2px solid $bleuclair;
                 border-radius: 8px;
-                margin-bottom: 45%;
+                width: 100%;
             }
             #submit{
                 width: 100%;
@@ -170,8 +175,8 @@ body{
                 border: 2px solid $bleuclair;
                 border-radius: 8px;
                 font-size: 20px;
-                margin-top: 30%;
                 font-weight: bold;
+                margin-top: 30%;
                 transition: ease-in-out 0.2s;
                 &:hover{
                     background-color: $bleuclair;
