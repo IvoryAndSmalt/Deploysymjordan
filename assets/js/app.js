@@ -122,6 +122,7 @@ $(function () {
                     setQant = '<br>Quantité : ' + quantity
                 }
             mapopup.setContent('lat : ' + lat + '<br>long : ' + long + setQant + '<br>Espèces : ' + species) 
+            
             // .openPopup();
 
             // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
