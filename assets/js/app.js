@@ -1,4 +1,3 @@
-
 import '../css/app.scss';
 
 // any CSS you import will output into a single css file (app.css in this case)
@@ -17,21 +16,16 @@ require('hamburger');
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
 
-
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
 });
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
-
-console.log("salut");
 let markers = [];
 function cacherMarqueurs() {
     for (let i = 0; i < markers.length; i++) { 
         mymap.removeLayer(markers[i]);
-        
-        console.log("BOUCLE");
     };
     markers = [];
 };
@@ -39,14 +33,6 @@ var mymap = L.map('map00').setView([49.12, -123.47], 7.499);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
-
-// L.marker([51.5, -0.09]).addTo(mymap)
-//     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-//     // .openPopup();
-
-// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
-
-
 
 (function ($) {
     "use strict";
@@ -66,7 +52,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
         return check;
     });
-
 
     $('.validate-form .input100').each(function () {
         $(this).focus(function () {
@@ -142,13 +127,8 @@ $(function () {
     $('#search').submit(function (e) {
         e.preventDefault();
         if (markers.length > 0) {
-            console.log("TOTO");
             cacherMarqueurs();
-            console.log(markers.length)
             ajoutmarkers();
-            // mymap.eachLayer(function (markers) {
-            //     mymap.removeLayer(markers);
-            // });
         } else {
             ajoutmarkers();
         }
@@ -190,7 +170,6 @@ let bouton = document.getElementById('submit');
 //             let quantity = element['quantity']
 //             let species = element['species']
 //             let setQant = '<br>Quantité : Inconnue';
-//             // console.log(lat);
 //             let marker = L.marker([lat, long]).addTo(mymap)
 //                 .bindPopup('')
 //                 let mapopup = marker.getPopup();
@@ -199,13 +178,5 @@ let bouton = document.getElementById('submit');
 //                 }
 //             mapopup.setContent('lat : ' + lat + '<br>long : ' + long + setQant + '<br>Espèces : ' + species) 
 //             // .openPopup();
-
-//             // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 //         }
 //     })
-
-
-
-
-///////////////////     LIEN QUI MARCHE RECUP JSON CARIBOU
-//////////////////      https://www.movebank.org/movebank/service/public/json?study_id=216040785&individual_id=BP_car022&////////////////////     individual_id=BP_car023&individual_id=BP_car043&max_events_per_individual=5&sensor_type=gps
