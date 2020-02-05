@@ -1,9 +1,7 @@
 let markers = [];
 function cacherMarqueurs() {
     for (let i = 0; i < markers.length; i++) { 
-        mymap.removeLayer(markers[i]);
-        
-        console.log("BOUCLE");
+        mymap.removeLayer(markers[i]); 
     };
     markers = [];
 };
@@ -11,12 +9,6 @@ var mymap = L.map('map00').setView([49.12, -123.47], 7.499);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
-
-// L.marker([51.5, -0.09]).addTo(mymap)
-//     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-//     // .openPopup();
-
-// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 function ajoutmarkers(){
     let postdata = $('#search').serializeArray();
@@ -34,7 +26,6 @@ function ajoutmarkers(){
                 let quantity = element['quantity']
                 let species = element['species']
                 let setQant = '<br>Quantité : Inconnue';
-                // console.log(lat);
                 let newMarker = L.marker([lat, long])
                     .addTo(mymap)
                     .bindPopup('')
@@ -44,9 +35,7 @@ function ajoutmarkers(){
                     setQant = '<br>Quantité : ' + quantity
                 }
                 mapopup.setContent('lat : ' + lat + '<br>long : ' + long + setQant + '<br>Espèces : ' + species)
-                // .openPopup();
                 markers.push(newMarker);
-                // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
             }
             loader.className = 'hidden';
         }
@@ -61,9 +50,6 @@ $(function () {
             cacherMarqueurs();
             console.log(markers.length)
             ajoutmarkers();
-            // mymap.eachLayer(function (markers) {
-            //     mymap.removeLayer(markers);
-            // });
         } else {
             ajoutmarkers();
         }
